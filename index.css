@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-accent: #f5c518;
+    --secondary-accent: #f11a22;
+    --dark-bg: #0c1117;
+    --light-bg: #f9f9f9;
+    --white: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-body-dark: #b3b3b3;
+    --text-tertiary: #999999;
+    --border-light: #f0f0f0;
+    --border-dark: #3d4146;
+    --radius: 0.625rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--dark-bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+
+  ::selection {
+    background: var(--primary-accent);
+    color: var(--white);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .container-main {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (min-width: 640px) {
+    .container-main {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-main {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes scroll-band {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes character-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-scroll-band {
+  animation: scroll-band 30s linear infinite;
+}
+
+.animate-character-float {
+  animation: character-float 4s ease-in-out infinite;
+}
+
+/* Swiper overrides */
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
